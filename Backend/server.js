@@ -5,19 +5,11 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
 
-
-// Update this to the origin of your frontend
-const whitelist = ['https://dont-knowfront-krp5yprs6-sai-chithras-projects.vercel.app'];
-
+// Allow requests from your frontend origin
 const corsOptions = {
-    origin: (origin, callback) => {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true // If you need to include cookies or authorization headers
+    origin: 'https://dont-knowfront-jvuswsv71-sai-chithras-projects.vercel.app', // Update to your frontend URL
+    optionsSuccessStatus: 200,
+    credentials: true // If you are using cookies for authentication
 };
 
 app.use(cors(corsOptions));

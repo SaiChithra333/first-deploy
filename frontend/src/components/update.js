@@ -11,7 +11,7 @@ function Update() {
     const navigate = useNavigate();
 
     const getSingleUser = async ()=>{
-      const response = await fetch(`https://first-deploy-k9hs.vercel.app/user/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/user/${id}`);
       
     const result = await response.json();
     if(!response.ok){
@@ -33,7 +33,7 @@ function Update() {
     async function HandleEdit(e){
       e.preventDefault();
       const UpdateUser = {name,email,age};
-      const response = await fetch(`https://first-deploy-k9hs.vercel.app/api/user/${id}`,{
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/user/${id}`,{
           method:"PUT",
           body:JSON.stringify(UpdateUser),
           headers: {

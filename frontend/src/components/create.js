@@ -10,9 +10,10 @@ function Create() {
     const [err,seterr] = useState("");
     console.log(name,email,age);
     async function HandleSubmit(e){
+      console.log(`Sending data to: ${process.env.REACT_APP_BACKEND_URI}`);
         e.preventDefault();
         const addUser = {name,email,age};
-        const response = await fetch("https://first-deploy-k9hs.vercel.app/",{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}`,{
             method:"POST",
             body:JSON.stringify(addUser),
             headers: {
@@ -40,7 +41,7 @@ function Create() {
   return (
     <div className="container my-2 ">
       {err && <div class="alert alert-danger">{err}</div>}
-      <h2 classNameName="text-center">Create Blog</h2>
+      <h2 className="text-center">Create Blog</h2>
       <form onSubmit={HandleSubmit}>
   <div className="mb-3">
     <label className="form-label ">Title</label>

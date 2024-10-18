@@ -6,7 +6,7 @@ function Read() {
   const[err,seterr]=useState("");
 
   async function getData(){
-    const response = await fetch("https://first-deploy-k9hs.vercel.app/")
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}`)
     const result = await response.json();
     if(!response.ok){
       seterr(result.error)
@@ -18,7 +18,7 @@ function Read() {
     }
   }
   const HandleDelete = async(id)=>{
-    const response = await fetch(`https://first-deploy-k9hs.vercel.app/api/user/${id}`,{
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/user/${id}`,{
       method:"DELETE",
     });
     const result = await response.json();

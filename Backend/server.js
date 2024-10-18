@@ -5,7 +5,23 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
 
-app.use(cors());
+
+// Update this to the origin of your frontend
+const whitelist = ['https://dont-knowfront-krp5yprs6-sai-chithras-projects.vercel.app'];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true // If you need to include cookies or authorization headers
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 const User = require('./model/Usermodel');

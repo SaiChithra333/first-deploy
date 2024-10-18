@@ -33,7 +33,7 @@ function Update() {
     async function HandleEdit(e){
       e.preventDefault();
       const UpdateUser = {name,email,age};
-      const response = await fetch(`http://localhost:5001/api/user/${id}`,{
+      const response = await fetch(`https://first-deploy-k9hs.vercel.app/api/user/${id}`,{
           method:"PUT",
           body:JSON.stringify(UpdateUser),
           headers: {

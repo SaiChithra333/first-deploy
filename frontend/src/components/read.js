@@ -18,7 +18,7 @@ function Read() {
     }
   }
   const HandleDelete = async(id)=>{
-    const response = await fetch(`http://localhost:5001/api/user/${id}`,{
+    const response = await fetch(`https://first-deploy-k9hs.vercel.app/api/user/${id}`,{
       method:"DELETE",
     });
     const result = await response.json();

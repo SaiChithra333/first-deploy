@@ -12,7 +12,7 @@ function Create() {
     async function HandleSubmit(e){
         e.preventDefault();
         const addUser = {name,email,age};
-        const response = await fetch("http://localhost:5001/",{
+        const response = await fetch("https://first-deploy-k9hs.vercel.app/",{
             method:"POST",
             body:JSON.stringify(addUser),
             headers: {

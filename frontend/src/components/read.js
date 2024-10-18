@@ -6,7 +6,7 @@ function Read() {
   const[err,seterr]=useState("");
 
   async function getData(){
-    const response = await fetch("http://localhost:5001")
+    const response = await fetch("https://first-deploy-k9hs.vercel.app/")
     const result = await response.json();
     if(!response.ok){
       seterr(result.error)

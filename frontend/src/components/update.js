@@ -11,7 +11,7 @@ function Update() {
     const navigate = useNavigate();
 
     const getSingleUser = async ()=>{
-      const response = await fetch(`http://localhost:5001/api/user/${id}`);
+      const response = await fetch(`https://first-deploy-k9hs.vercel.app/user/${id}`);
       
     const result = await response.json();
     if(!response.ok){
